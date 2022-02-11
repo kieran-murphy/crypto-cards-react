@@ -1,0 +1,1 @@
+export default ["Bitcoin","Ethereum","Ripple","Dogecoin","Shiba","Cardano", "Tether", "Litecoin", "Polkadot", "Solana"];
