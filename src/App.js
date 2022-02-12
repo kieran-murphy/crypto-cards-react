@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react'; 
 import images from './images';
 import coins from './coins';
+import { Card } from './card';
 
 function App() {
 
@@ -22,12 +23,7 @@ function App() {
         <motion.div  drag="x" dragConstraints={{ right : 0, left: -width }} className="inner-carousel">
           {coins.map(coin => {
             return(
-              <motion.div className="item" key={coin}>
-                
-                <div>
-                  <h1>{coin}</h1>
-                </div>
-              </motion.div>
+              <Card coin={coin}></Card>
             )
           })}
         </motion.div>
