@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { motion } from 'framer-motion';
 import { TriangleUpIcon, TriangleDownIcon } from '@chakra-ui/icons'
-import './App.css';
+
 
 export class Card extends Component {
   constructor(props) {
@@ -12,7 +12,14 @@ export class Card extends Component {
     const { coin } = this.props
   
     return (
-      <motion.div className="item" key={coin.name} >
+      <motion.div 
+      className="item" 
+      key={coin.name}  
+      whileHover={{ scale: 1.03 }} 
+      whileTap={{ scale: 0.95 }} 
+      initial={{ x: 300 }}
+      whileInView={{ x: 1 }}
+      viewport={{ once: true }}>
           <div className={coin.color}>
             <h1>{coin.name}</h1>
             <br></br>
@@ -27,7 +34,9 @@ export class Card extends Component {
               <br></br>
               
             </div>
+            <motion.div>
             {coin.color === "green" ? <TriangleUpIcon w='30' h='30'color='green'/> : <TriangleDownIcon w='30' h='30' color='red'/>}
+            </motion.div>
           </div>
       </motion.div>
     )

@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react'; 
 import images from './images';
 import coins from './coins';
-import { Card } from './card';
+import { Card } from './components/card';
+
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <motion.div ref={carousel} className="carousel" whileTap={{cursor: "grabbing"}}>
         <motion.div  drag="x" dragConstraints={{ right : 0, left: -width }} className="inner-carousel">
           {coins.map(coin => {
