@@ -55,6 +55,14 @@
 .carousel {
   cursor: grab;
   overflow: hidden;
-  
+}
+
+.example-container button {
+  width: 100%;
+  height: 100%;
+  background: rgb(30, 36, 36);
+  border-radius: 2rem;
+  width: 150px;
+  height: 150px;
 }
 
