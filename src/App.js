@@ -16,12 +16,12 @@ function App() {
 
   
   const addCard = () => {
-    setCoins([{name:"New coin", color: "green", price:7302.76, change:"6.63%"}, ...coins])
+    setCoins([...coins, {name:"New coin", color: "green", price:7302.76, change:"6.63%"}])
   };
 
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  }, [])
+  }, [coins])
 
 
   return (
