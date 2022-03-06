@@ -4,7 +4,6 @@
   padding: 50px;
 }
 
-
 .item img {
   width: 100%;
   height: 100%;
@@ -49,7 +48,6 @@
 
 .inner-carousel {
   display: flex;
-  
 }
 
 .carousel {
@@ -73,7 +71,40 @@
   border-radius: 2rem;
   box-shadow: 0.3rem 0.3rem 1.5rem 1px rgba(173, 243, 255, 0.301);
   display: flex;
-  
-  align-items:flex-center;
+
+  align-items: flex-center;
 }
 
+/* Add a black background color to the top navigation */
+#topnav {
+  overflow: hidden;
+  display: block;
+}
+
+/* Style the links inside the navigation bar */
+#topnav a {
+  float: left;
+
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#reset {
+  float: right;
+}
+
+/* Change the color of links on hover */
+#topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+
+/* Add a color to the active/current link */
+#topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
