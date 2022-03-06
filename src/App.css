@@ -78,7 +78,9 @@
 /* Add a black background color to the top navigation */
 #topnav {
   overflow: hidden;
-  display: block;
+  display: flex;
+
+  /* display: block; */
 }
 
 /* Style the links inside the navigation bar */

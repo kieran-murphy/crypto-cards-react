@@ -3,7 +3,6 @@ import "./App.css";
 import { motion } from "framer-motion";
 import { Select } from "@chakra-ui/react";
 import { useRef, useEffect, useState, Component } from "react";
-import images from "./images";
 import coinsdata from "./coins";
 import Card from "./components/Card";
 import Nav from "./components/Nav";
@@ -13,11 +12,11 @@ function App() {
   const [coins, setCoins] = useState(coinsdata);
   const carousel = useRef();
 
-  const addCard = () => {
-    setCoins([
-      ...coins,
-      { name: "New coin", color: "green", price: 7302.76, change: "6.63%" },
-    ]);
+  const addCard = (coin) => {
+    const coinNames = coins.map((value) => value.name);
+    if (!coinNames.includes(coin.name)) {
+      setCoins([...coins, coin]);
+    }
   };
 
   const deleteCard = (coin) => {
@@ -28,13 +27,18 @@ function App() {
     );
   };
 
+  const resetCards = () => {
+    setCoins([]);
+    setCoins(coinsdata);
+  };
+
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [coins]);
 
   return (
     <div className="App">
-      <Nav />
+      <Nav resetCards={resetCards} />
       <motion.div
         ref={carousel}
         className="carousel"
@@ -64,7 +68,14 @@ function App() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={addCard}
+            onClick={() =>
+              addCard({
+                name: "New coin",
+                color: "green",
+                price: 7302.76,
+                change: "6.63%",
+              })
+            }
           >
             Add Card
           </motion.button>

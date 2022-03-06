@@ -1,14 +1,14 @@
 import React from 'react'
 import '../App.css';
 
-const Nav = () => {
+const Nav = ({resetCards}) => {
   return (
     <div id="topnav">
       
-      <a onClick={() => console.log("light mode")}>☀️</a>
-      <a onClick={() => console.log("dark mode")}>🌑</a>
+      <h3><a onClick={() => console.log("light mode")}>Light Mode ☀️</a></h3>
+      <h3><a onClick={() => console.log("dark mode")}>Night Mode 🌑</a></h3>
       <div id="reset">
-        <a onClick={() => console.log("reset")}>🔁</a>
+        <h3><a onClick={resetCards}>Reset Coins 🔁</a></h3>
       </div>
       
       
