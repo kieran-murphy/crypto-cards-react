@@ -19,6 +19,14 @@ function App() {
     setCoins([...coins, {name:"New coin", color: "green", price:7302.76, change:"6.63%"}])
   };
 
+  const deleteCard = (coin) => {
+    setCoins(
+      coins.filter((el) => {
+        return el.name !== coin.name;
+      })
+    );
+  };
+
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [coins])
@@ -31,7 +39,7 @@ function App() {
         <motion.div  drag="x" dragConstraints={{ right : 0, left: -width }} className="inner-carousel">
           {coins.map(coin => {
             return(
-              <Card coin={coin}></Card>
+              <Card key={coin.name} coin={coin} deleteCard={deleteCard}></Card>
             )
           })}
         </motion.div>
