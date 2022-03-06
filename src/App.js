@@ -5,7 +5,7 @@ import { Select } from '@chakra-ui/react'
 import { useRef, useEffect, useState, Component } from 'react'; 
 import images from './images';
 import coinsdata from './coins';
-import { Card } from './components/card';
+import Card from "./components/Card";
 
 
 function App() {

@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { motion } from "framer-motion";
 import { TriangleUpIcon, TriangleDownIcon, DeleteIcon } from "@chakra-ui/icons";
 
-export class Card extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Card = ({ coin, deleteCard }) => {
 
-  render() {
-    const { coin, deleteCard } = this.props;
+  const [isHover, setIsHover] = useState(false);  
 
-    
-
-    return (
-      <motion.div
+  return (
+    <motion.div
         className="item"
         key={coin.name}
         whileHover={{ scale: 1.03 }}
+        onHoverStart={() => {
+          setIsHover(true);
+        }}
+        onHoverEnd={() => {
+          setIsHover(false);
+        }}
         whileTap={{ scale: 0.95 }}
         initial={{ x: 300 }}
         whileInView={{ x: 1 }}
@@ -44,21 +44,24 @@ export class Card extends Component {
           </motion.div>
           <br></br>
           <br></br>
+          <br></br>
+          <br></br>
           <motion.div
+            
             whileHover={{ scale: 1.3 }}
             onClick={() => {
               deleteCard(coin);
             }}
-            //onClick={print}
           >
             {coin.color === "green" ? (
-              <DeleteIcon w="30" h="30" color="green" />
+              <DeleteIcon w="40" h="40" color="green" opacity={isHover ? 1 : 0}/>
             ) : (
-              <DeleteIcon w="30" h="30" color="red" />
+              <DeleteIcon w="40" h="40" color="red" opacity={isHover ? 1 : 0}/>
             )}
           </motion.div>
         </div>
       </motion.div>
-    );
-  }
+  )
 }
+
+export default Card
