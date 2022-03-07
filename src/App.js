@@ -32,13 +32,27 @@ function App() {
     setCoins(coinsdata);
   };
 
+  const lightBackground = () => {
+    console.log("light");
+    document.body.style = "background: rgb(245, 245, 255);";
+  };
+
+  const darkBackground = () => {
+    console.log("dark");
+    document.body.style = "background: rgb(24, 26, 26);";
+  };
+
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [coins]);
 
   return (
     <div className="App">
-      <Nav resetCards={resetCards} />
+      <Nav
+        lightBackground={lightBackground}
+        darkBackground={darkBackground}
+        resetCards={resetCards}
+      />
       <motion.div
         ref={carousel}
         className="carousel"
