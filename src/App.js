@@ -8,6 +8,7 @@ import Card from "./components/Card";
 import Nav from "./components/Nav";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
+import AddCoin from "./components/AddCoin";
 
 const StyledApp = styled.div`
   .placeholder: ${(props) => props.theme.fontColor};
@@ -87,7 +88,7 @@ function App() {
           </motion.div>
         </motion.div>
 
-        <div className="add">
+        {/* <div className="add">
           <select placeholder="Select option">
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
@@ -110,7 +111,8 @@ function App() {
               Add Card
             </motion.button>
           </div>
-        </div>
+        </div> */}
+        <AddCoin addCard={addCard} />
       </div>
       {/* </StyledApp> */}
     </ThemeProvider>

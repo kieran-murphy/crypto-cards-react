@@ -1,10 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  body: "rgb(190, 190, 200)",
-  card: "rgb(210, 210, 210)",
+  body: "white",
+  card: "whitesmoke",
   fontColor: "#000",
   cardTextColor: "black",
+  greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
+  redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
 };
 
 export const darkTheme = {
@@ -12,6 +14,8 @@ export const darkTheme = {
   card: "rgb(30, 36, 36)",
   fontColor: "aquamarine",
   cardTextColor: "aquamarine",
+  greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(0, 255, 106, 0.533)",
+  redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(255, 4, 4, 0.685)",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -30,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
       align-items: center;
       border-radius: 2rem;
       /* pointer-events: none; */
-      box-shadow: 0.3rem 0.3rem 1.5rem 1px rgba(0, 255, 106, 0.533);
+      box-shadow: ${(props) => props.theme.greenShadow};
     }
 
     .red {
@@ -43,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
       align-items: center;
       border-radius: 2rem;
       /* pointer-events: none; */
-      box-shadow: 0.3rem 0.3rem 1.5rem 1px rgba(255, 4, 4, 0.685);
+      box-shadow: ${(props) => props.theme.redShadow};
     }
 
     #topnav a {
