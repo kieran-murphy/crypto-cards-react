@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 2rem;
       /* pointer-events: none; */
       box-shadow: ${(props) => props.theme.greenShadow};
+      
     }
 
     .red {
@@ -75,5 +76,7 @@ export const GlobalStyles = createGlobalStyle`
       background-color: #04aa6d;
       color: white;
     }
+
+    
 
 `;

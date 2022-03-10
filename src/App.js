@@ -25,16 +25,25 @@ function App() {
   };
 
   const addCard = (coin) => {
-    const coinNames = coins.map((value) => value.name);
-    if (!coinNames.includes(coin.name)) {
-      setCoins([...coins, coin]);
+    const coinNames = coins.map((value) => value.dataName);
+    if (!coinNames.includes(coin.dataName)) {
+      setCoins([
+        ...coins,
+        {
+          displayName: coin.displayName,
+          dataName: coin.dataName,
+          color: "green",
+          price: 66282.72,
+          change: "2.43%",
+        },
+      ]);
     }
   };
 
   const deleteCard = (coin) => {
     setCoins(
       coins.filter((el) => {
-        return el.name !== coin.name;
+        return el.dataName !== coin.dataName;
       })
     );
   };
@@ -65,7 +74,10 @@ function App() {
           lightBackground={lightBackground}
           darkBackground={darkBackground}
           resetCards={resetCards}
+          addCard={addCard}
         />
+        <AddCoin addCard={addCard} />
+
         <motion.div
           ref={carousel}
           className="carousel"
@@ -87,32 +99,6 @@ function App() {
             })}
           </motion.div>
         </motion.div>
-
-        {/* <div className="add">
-          <select placeholder="Select option">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-
-          <div className="example-container">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() =>
-                addCard({
-                  name: "New coin",
-                  color: "green",
-                  price: 7302.76,
-                  change: "6.63%",
-                })
-              }
-            >
-              Add Card
-            </motion.button>
-          </div>
-        </div> */}
-        <AddCoin addCard={addCard} />
       </div>
       {/* </StyledApp> */}
     </ThemeProvider>

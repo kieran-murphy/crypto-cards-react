@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-const Nav = ({ lightBackground, darkBackground, resetCards }) => {
+const Nav = ({ lightBackground, darkBackground, resetCards, addCard }) => {
   return (
     <div id="topnav">
       <h3>

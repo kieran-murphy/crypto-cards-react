@@ -4,15 +4,15 @@ const AddCoin = ({ addCard }) => {
   const [isActive, setIsActive] = useState(false);
 
   const availableCoins = [
-    "bitcoin",
-    "ethereum",
-    "ripple",
-    "tether",
-    "bitcoin-cash",
-    "litecoin",
-    "eos",
-    "polkadot",
-    "cardano",
+    { dataName: "bitcoin", displayName: "Bitcoin" },
+    { dataName: "ethereum", displayName: "Ethereum" },
+    { dataName: "ripple", displayName: "Ripple" },
+    { dataName: "tether", displayName: "Tether" },
+    { dataName: "bitcoin-cash", displayName: "Bitcoin-Cash" },
+    { dataName: "litecoin", displayName: "Litecoin" },
+    { dataName: "eos", displayName: "EOS.IO" },
+    { dataName: "polkadot", displayName: "Polkadot" },
+    { dataName: "cardano", displayName: "Cardano" },
   ];
 
   const handleClick = (coin) => {
@@ -33,12 +33,13 @@ const AddCoin = ({ addCard }) => {
         {availableCoins.map((el) => {
           return (
             <a
-              key={el}
+              key={el.dataName}
               onClick={() => handleClick(el)}
               href="#"
               className="dropdown-item"
             >
-              {el}
+              {el.displayName}
+              <br></br>
             </a>
           );
         })}

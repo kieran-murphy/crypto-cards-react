@@ -22,7 +22,7 @@ const Card = ({ coin, deleteCard }) => {
       viewport={{ once: true }}
     >
       <div className={coin.color}>
-        <h1>{coin.name}</h1>
+        <h1>{coin.displayName}</h1>
         <br></br>
         <div className="stats">
           <div className="price">
