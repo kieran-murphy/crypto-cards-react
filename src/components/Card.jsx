@@ -22,20 +22,20 @@ const Card = ({ coin, deleteCard }) => {
       viewport={{ once: true }}
     >
       <div className={coin.color}>
-        <h1>{coin.displayName}</h1>
+        <h1>{coin.name}</h1>
         <br></br>
         <div className="stats">
           <div className="price">
-            <h2>Price: {coin.price}</h2>
+            <h2>Price: {coin.current_price}</h2>
           </div>
           <br></br>
           <div className="change">
-            <h2>24hr Change: {coin.change}</h2>
+            <h2>24hr Change: {coin.price_change_percentage_24h}</h2>
           </div>
           <br></br>
         </div>
         <motion.div>
-          {coin.color === "green" ? (
+          {coin.price_change_percentage_24h > 0 ? (
             <TriangleUpIcon w="30" h="30" color="green" />
           ) : (
             <TriangleDownIcon w="30" h="30" color="red" />
@@ -51,7 +51,7 @@ const Card = ({ coin, deleteCard }) => {
             deleteCard(coin);
           }}
         >
-          {coin.color === "green" ? (
+          {coin.price_change_percentage_24h > 0 ? (
             <DeleteIcon w="40" h="40" color="green" opacity={isHover ? 1 : 0} />
           ) : (
             <DeleteIcon w="40" h="40" color="red" opacity={isHover ? 1 : 0} />

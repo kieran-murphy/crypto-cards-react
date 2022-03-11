@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  body: "white",
-  card: "whitesmoke",
+  body: "whitesmoke",
+  card: "rgb(240,240,240)",
   fontColor: "#000",
   cardTextColor: "black",
   greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
@@ -75,6 +75,10 @@ export const GlobalStyles = createGlobalStyle`
     #topnav a.active {
       background-color: #04aa6d;
       color: white;
+    }
+
+    #loading {
+      color: ${(props) => props.theme.fontColor};
     }
 
     
