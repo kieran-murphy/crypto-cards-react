@@ -1,22 +1,24 @@
 import React, { useContext, useState } from "react";
+import { WatchListContext } from "../context/watchListContext";
 
-const AddCoin = ({ addCard }) => {
+const AddCoin = () => {
   const [isActive, setIsActive] = useState(false);
+  const { addCoin } = useContext(WatchListContext);
 
   const availableCoins = [
-    { dataName: "bitcoin", displayName: "Bitcoin" },
-    { dataName: "ethereum", displayName: "Ethereum" },
-    { dataName: "ripple", displayName: "Ripple" },
-    { dataName: "tether", displayName: "Tether" },
-    { dataName: "bitcoin-cash", displayName: "Bitcoin-Cash" },
-    { dataName: "litecoin", displayName: "Litecoin" },
-    { dataName: "eos", displayName: "EOS.IO" },
-    { dataName: "polkadot", displayName: "Polkadot" },
-    { dataName: "cardano", displayName: "Cardano" },
+    "bitcoin",
+    "ethereum",
+    "ripple",
+    "tether",
+    "bitcoin-cash",
+    "litecoin",
+    "eos",
+    "polkadot",
+    "cardano",
   ];
 
   const handleClick = (coin) => {
-    addCard(coin);
+    addCoin(coin);
     setIsActive(false);
   };
 
@@ -33,12 +35,12 @@ const AddCoin = ({ addCard }) => {
         {availableCoins.map((el) => {
           return (
             <a
-              key={el.dataName}
+              key={el}
               onClick={() => handleClick(el)}
               href="#"
               className="dropdown-item"
             >
-              {el.displayName}
+              {el}
               <br></br>
             </a>
           );

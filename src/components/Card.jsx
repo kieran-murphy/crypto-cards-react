@@ -48,7 +48,7 @@ const Card = ({ coin, deleteCard }) => {
         <motion.div
           whileHover={{ scale: 1.3 }}
           onClick={() => {
-            deleteCard(coin);
+            deleteCard(coin.id);
           }}
         >
           {coin.price_change_percentage_24h > 0 ? (
