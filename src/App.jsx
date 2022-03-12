@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
 import AddCoin from "./components/AddCoin";
+import { WatchListContextProvider } from "./context/watchListContext";
 
 const defaultCoinsData = ["bitcoin", "ethereum", "ripple"];
 const StyledApp = styled.div`
@@ -61,16 +62,15 @@ function App() {
   }, [dataCoins]);
 
   const addCard = (coin) => {
-    const coinNames = dataCoins.map((value) => value.dataName);
-    if (!coinNames.includes(coin.dataName)) {
-      setDataCoins([...dataCoins, coin]);
+    if (!dataCoins.includes(coin.id)) {
+      setDataCoins([...dataCoins, coin.id]);
     }
   };
 
   const deleteCard = (coin) => {
     setDataCoins(
       dataCoins.filter((el) => {
-        return el.dataName !== coin.name;
+        return el !== coin.id;
       })
     );
   };
@@ -109,38 +109,46 @@ function App() {
   //   );
   // } else {
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      {/* <StyledApp> */}
-      <div className="App">
-        <Nav
-          lightBackground={lightBackground}
-          darkBackground={darkBackground}
-          resetCards={resetCards}
-          addCard={addCard}
-        />
-        <AddCoin addCard={addCard} />
+    <div className="container">
+      <WatchListContextProvider>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          {/* <StyledApp> */}
+          <div className="App">
+            <Nav
+              lightBackground={lightBackground}
+              darkBackground={darkBackground}
+              resetCards={resetCards}
+              addCard={addCard}
+            />
+            <AddCoin addCard={addCard} />
 
-        <motion.div
-          ref={carousel}
-          className="carousel"
-          whileTap={{ cursor: "grabbing" }}
-        >
-          <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
-            className="inner-carousel"
-          >
-            {coins.map((coin) => {
-              return (
-                <Card key={coin.id} coin={coin} deleteCard={deleteCard}></Card>
-              );
-            })}
-          </motion.div>
-        </motion.div>
-      </div>
-      {/* </StyledApp> */}
-    </ThemeProvider>
+            <motion.div
+              ref={carousel}
+              className="carousel"
+              whileTap={{ cursor: "grabbing" }}
+            >
+              <motion.div
+                drag="x"
+                dragConstraints={{ right: 0, left: -width }}
+                className="inner-carousel"
+              >
+                {coins.map((coin) => {
+                  return (
+                    <Card
+                      key={coin.id}
+                      coin={coin}
+                      deleteCard={deleteCard}
+                    ></Card>
+                  );
+                })}
+              </motion.div>
+            </motion.div>
+          </div>
+          {/* </StyledApp> */}
+        </ThemeProvider>
+      </WatchListContextProvider>
+    </div>
   );
 }
 // }

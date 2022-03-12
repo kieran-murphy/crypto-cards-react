@@ -21,12 +21,12 @@ const Card = ({ coin, deleteCard }) => {
       whileInView={{ x: 1 }}
       viewport={{ once: true }}
     >
-      <div className={coin.color}>
+      <div className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>
         <h1>{coin.name}</h1>
         <br></br>
         <div className="stats">
           <div className="price">
-            <h2>Price: {coin.current_price}</h2>
+            <h2>Price: ${coin.current_price}</h2>
           </div>
           <br></br>
           <div className="change">
