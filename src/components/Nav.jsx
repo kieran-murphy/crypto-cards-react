@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
+import { WatchListContext } from "../context/watchListContext";
 import "../App.css";
 
 const Nav = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { resetCoins } = useContext(WatchListContext);
   return (
     <div id="topnav">
       <h3>
@@ -14,7 +16,7 @@ const Nav = () => {
       </h3>
       <div id="reset">
         <h3>
-          <a onClick={() => console.log("reset")}>Reset Coins 🔁</a>
+          <a onClick={resetCoins}>Reset Coins 🔁</a>
         </h3>
       </div>
     </div>

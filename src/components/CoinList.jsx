@@ -20,6 +20,10 @@ const CoinList = () => {
   const { theme } = useContext(ThemeContext);
   const [coins, setCoins] = useState([]);
 
+  const StyledApp = styled.div`
+    .placeholder: ${(props) => props.theme.fontColor};
+  `;
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -42,7 +46,7 @@ const CoinList = () => {
 
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth + 400);
-  }, [watchList, coins]);
+  }, [coins]);
 
   const renderCoins = () => {
     // if (isLoading) {
@@ -68,34 +72,28 @@ const CoinList = () => {
         whileTap={{ cursor: "grabbing" }}
       >
         <div className="container">
-          {/* <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}> */}
-          {/* <GlobalStyles /> */}
-          {/* <StyledApp> */}
-          <div className="App">
-            {/* <Nav
-                lightBackground={lightBackground}
-                darkBackground={darkBackground}
-                resetCards={resetCards}
-                addCard={addCard}
-              /> */}
-            <motion.div
-              drag="x"
-              dragConstraints={{ right: 0, left: -width }}
-              className="inner-carousel"
-            >
-              {coins.map((coin) => {
-                return (
-                  <Card
-                    key={coin.id}
-                    coin={coin}
-                    deleteCard={deleteCoin}
-                  ></Card>
-                );
-              })}
-            </motion.div>
-          </div>
-          {/* </StyledApp> */}
-          {/* </ThemeProvider> */}
+          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <GlobalStyles />
+            <StyledApp>
+              <div className="App">
+                <motion.div
+                  drag="x"
+                  dragConstraints={{ right: 0, left: -width }}
+                  className="inner-carousel"
+                >
+                  {coins.map((coin) => {
+                    return (
+                      <Card
+                        key={coin.id}
+                        coin={coin}
+                        deleteCard={deleteCoin}
+                      ></Card>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </StyledApp>
+          </ThemeProvider>
         </div>
       </motion.div>
     );

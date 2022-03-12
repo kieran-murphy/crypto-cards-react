@@ -17,9 +17,9 @@ const Card = ({ coin, deleteCard }) => {
         setIsHover(false);
       }}
       whileTap={{ scale: 0.95 }}
-      initial={{ x: 300 }}
-      whileInView={{ x: 1 }}
-      viewport={{ once: true }}
+      // initial={{ x: 300 }}
+      // whileInView={{ x: 1 }}
+      // viewport={{ once: true }}
     >
       <div className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>
         <h1>{coin.name}</h1>
