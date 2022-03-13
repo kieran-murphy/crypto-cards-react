@@ -19,7 +19,6 @@ export const ThemeContextProvider = (props) => {
 
   const toggleTheme = (theme) => {
     theme === "dark" ? setTheme("dark") : setTheme("light");
-    console.log(theme);
   };
 
   return (

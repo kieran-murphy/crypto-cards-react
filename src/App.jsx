@@ -12,7 +12,7 @@ const App = () => {
       <ThemeContextProvider>
         <WatchListContextProvider>
           <Nav />
-          <AddCoin />
+
           <CoinList />
         </WatchListContextProvider>
       </ThemeContextProvider>
