@@ -1,41 +1,29 @@
 import React, { useContext, useState } from "react";
 import { WatchListContext } from "../context/watchListContext";
 
-const AddCoin = ({ allCoins }) => {
-  const [isActive, setIsActive] = useState(false);
+const AddCoin = ({ allCoins, setIsOpen }) => {
   const { addCoin } = useContext(WatchListContext);
-
-  const availableCoins = [
-    "bitcoin",
-    "ethereum",
-    "ripple",
-    "tether",
-    "bitcoin-cash",
-    "litecoin",
-    "eos",
-    "polkadot",
-    "cardano",
-  ];
 
   const handleClick = (coin) => {
     addCoin(coin);
-    setIsActive(false);
+    setIsOpen(false);
   };
 
   return (
     <div className="dropdown">
-      <div className={isActive ? "dropdown-menu show" : "dropdown-menu"}>
+      <div>
         {allCoins.map((el) => {
           return (
-            <a
+            <div
+              id="addCoin"
               key={el.id}
               onClick={() => handleClick(el.id)}
               href="#"
               className="dropdown-item"
             >
-              {el.name}
-              <br></br>
-            </a>
+              <h2>{el.name}</h2>
+              <img src={el.image} height="30rem" />
+            </div>
           );
         })}
       </div>

@@ -7,6 +7,7 @@ export const lightTheme = {
   cardTextColor: "black",
   greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
+  addCoinHover: "rgba(0,0,0,0.4)",
 };
 
 export const darkTheme = {
@@ -16,6 +17,7 @@ export const darkTheme = {
   cardTextColor: "aquamarine",
   greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(0, 255, 106, 0.533)",
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(255, 4, 4, 0.685)",
+  addCoinHover: "rgba(230,230,230,0.7)",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -80,6 +82,36 @@ export const GlobalStyles = createGlobalStyle`
     #loading {
       color: ${(props) => props.theme.fontColor};
     }
+
+    #addCoin {
+      height: 5rem;
+      width: 99%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 1rem;
+      background-color: ${(props) => props.theme.card};
+      color: ${(props) => props.theme.cardTextColor};
+      border-radius: 1rem;
+      
+    }
+    
+    #addCoin:hover {
+      cursor: pointer;
+      color: ${(props) => props.theme.addCoinHover};
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    html {
+      scrollbar-width: none;
+    }
+    
+
+    
 
     
 

@@ -9,7 +9,7 @@ import coinGecko from "../apis/coinGecko";
 const Nav = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { resetCoins, addCoin } = useContext(WatchListContext);
-  const { allCoins, setAllCoins } = useState([]);
+  const [allCoins, setAllCoins] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const fetchData = async () => {
@@ -17,7 +17,7 @@ const Nav = () => {
       params: {
         vs_currency: "aud",
         order: "market_cap_desc",
-        per_page: 100,
+        per_page: 200,
         page: 1,
         sparkline: false,
       },
@@ -54,7 +54,7 @@ const Nav = () => {
         </h3>
       </div>
       <CoinAddOverlay open={isOpen} onClose={() => setIsOpen(false)}>
-        <AddCoin allCoins={allCoins} />
+        <AddCoin allCoins={allCoins} setIsOpen={setIsOpen} />
       </CoinAddOverlay>
     </>
   );

@@ -5,10 +5,16 @@ const MODAL_STYLES = {
   position: "fixed",
   top: "50%",
   left: "50%",
+  height: "80%",
+  width: "40%",
   transform: "translate(-50%, -50%)",
   backgroundColor: "white",
   padding: "50px",
+
+  "overflow-y": "scroll",
+
   zIndex: 1000,
+  "border-radius": "2rem",
 };
 
 const OVERLAY_STYLES = {
