@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Select } from "@chakra-ui/react";
 
 import coinGecko from "../apis/coinGecko";
-// import defaultCoinsData from "./coins";
 import Card from "./Card";
 import Nav from "./Nav";
 import styled, { ThemeProvider } from "styled-components";
@@ -19,10 +18,6 @@ const CoinList = () => {
   const { watchList, deleteCoin, addCoin } = useContext(WatchListContext);
   const { theme } = useContext(ThemeContext);
   const [coins, setCoins] = useState([]);
-
-  const StyledApp = styled.div`
-    .placeholder: ${(props) => props.theme.fontColor};
-  `;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,26 +40,10 @@ const CoinList = () => {
   }, [watchList]);
 
   useEffect(() => {
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth + 400);
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [coins]);
 
   const renderCoins = () => {
-    // if (isLoading) {
-    //   return (
-    //     <>
-    //       {/* <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-    //         <GlobalStyles /> */}
-    //       <motion.div
-    //         ref={carousel}
-    //         className="carousel"
-    //         whileTap={{ cursor: "grabbing" }}
-    //       >
-    //         <h2 id="loading">Loading...</h2>
-    //       </motion.div>
-    //       {/* </ThemeProvider> */}
-    //     </>
-    //   );
-    // } else {
     return (
       <motion.div
         ref={carousel}
@@ -74,25 +53,23 @@ const CoinList = () => {
         <div className="container">
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
-            <StyledApp>
-              <div className="App">
-                <motion.div
-                  drag="x"
-                  dragConstraints={{ right: 0, left: -width }}
-                  className="inner-carousel"
-                >
-                  {coins.map((coin) => {
-                    return (
-                      <Card
-                        key={coin.id}
-                        coin={coin}
-                        deleteCard={deleteCoin}
-                      ></Card>
-                    );
-                  })}
-                </motion.div>
-              </div>
-            </StyledApp>
+            <div className="App">
+              <motion.div
+                drag="x"
+                dragConstraints={{ right: 0, left: -width }}
+                className="inner-carousel"
+              >
+                {coins.map((coin) => {
+                  return (
+                    <Card
+                      key={coin.id}
+                      coin={coin}
+                      deleteCard={deleteCoin}
+                    ></Card>
+                  );
+                })}
+              </motion.div>
+            </div>
           </ThemeProvider>
         </div>
       </motion.div>
