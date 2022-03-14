@@ -7,7 +7,10 @@ export const lightTheme = {
   cardTextColor: "black",
   greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
-  addCoinHover: "rgba(0,0,0,0.4)",
+  addCoinShadow: "0.2rem 0.2rem 1rem 1px rgba(4, 4, 4, 0.685)",
+  addCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
+  closeAddCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
+  addCoinHover: "rgba(0,0,0,0.6)",
 };
 
 export const darkTheme = {
@@ -17,6 +20,9 @@ export const darkTheme = {
   cardTextColor: "aquamarine",
   greenShadow: "0.3rem 0.3rem 1.5rem 1px rgba(0, 255, 106, 0.533)",
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(255, 4, 4, 0.685)",
+  addCoinShadow: "0.2rem 0.2rem 1rem 1px rgba(4, 4, 4, 0.685)",
+  addCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
+  closeAddCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
   addCoinHover: "rgba(230,230,230,0.7)",
 };
 
@@ -60,10 +66,8 @@ export const GlobalStyles = createGlobalStyle`
       padding: 14px 16px;
       text-decoration: none;
       font-size: 17px;
-    }
-    
-    #reset {
-      float: right;
+      border-radius: 1rem;
+      margin-left: 1rem;
     }
     
     /* Change the color of links on hover */
@@ -89,18 +93,81 @@ export const GlobalStyles = createGlobalStyle`
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      align-items: center;
-      margin: 1rem;
+      align-items: center;  
+      margin-top: 2rem;
       background-color: ${(props) => props.theme.card};
       color: ${(props) => props.theme.cardTextColor};
       border-radius: 1rem;
-      
+      box-shadow: ${(props) => props.theme.addCoinShadow};
     }
+      
     
     #addCoin:hover {
       cursor: pointer;
       color: ${(props) => props.theme.addCoinHover};
+      box-shadow: ${(props) => props.theme.addCoinShadowHover};
     }
+
+    #modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      height: 85%;
+      width: 45%;
+      border-radius: 2rem;
+      transform: translate(-50%, -50%);
+      zIndex: 1000;
+      background-color: ${(props) => props.theme.body};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    #inner_scroll {
+      height: 85%;
+      width: 85%;
+      background-color: ${(props) => props.theme.body};
+      padding: 5px;
+      overflow-y: scroll;
+      zIndex: 1001;
+      
+      
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      zIndex: 1000;
+    }
+
+    #addCoinClose {
+      height: 5rem;
+      width: 84%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      background-color: ${(props) => props.theme.card};
+      color: ${(props) => props.theme.cardTextColor};
+      border-radius: 1rem;
+      box-shadow: ${(props) => props.theme.addCoinShadow};
+    }
+
+    #addCoinClose:hover {
+      cursor: pointer;
+      color: ${(props) => props.theme.addCoinHover};
+      box-shadow: ${(props) => props.theme.closeAddCoinShadowHover};
+    }
+
+    
 
     body::-webkit-scrollbar {
       display: none;

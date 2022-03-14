@@ -18,7 +18,6 @@ const AddCoin = ({ allCoins, setIsOpen }) => {
               id="addCoin"
               key={el.id}
               onClick={() => handleClick(el.id)}
-              href="#"
               className="dropdown-item"
             >
               <h2>{el.name}</h2>

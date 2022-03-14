@@ -1,44 +1,21 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-const MODAL_STYLES = {
-  position: "fixed",
-  top: "50%",
-  left: "50%",
-  height: "80%",
-  width: "40%",
-  transform: "translate(-50%, -50%)",
-  backgroundColor: "white",
-  padding: "50px",
-
-  "overflow-y": "scroll",
-
-  zIndex: 1000,
-  "border-radius": "2rem",
-};
-
-const OVERLAY_STYLES = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0,0,0,0.7)",
-  zIndex: 1000,
-};
-
 export const CoinAddOverlay = ({ open, children, onClose }) => {
   if (!open) {
     return null;
   }
   return ReactDom.createPortal(
     <>
-      <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
-        <button onClick={onClose}>Close Modal</button>
-        {children}
+      <div id="overlay" onClick={onClose} />
+      <div id="modal">
+        <div id="addCoinClose" onClick={onClose} className="dropdown-item">
+          <h2>Close </h2>
+          {/* <img src={el.image} height="30rem" /> */}
+        </div>
+        <div id="inner_scroll">{children}</div>
       </div>
     </>,
-    document.getElementById("portal")
+    document.getElementById("addPortal")
   );
 };
