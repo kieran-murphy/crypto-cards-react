@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../context/themeContext";
 import { WatchListContext } from "../context/watchListContext";
 import { CoinAddOverlay } from "./CoinAddOverlay";
+import { ResetOverlay } from "./ResetOverlay";
+import { motion } from "framer-motion";
 import "../App.css";
 import AddCoin from "./AddCoin";
 import coinGecko from "../apis/coinGecko";
@@ -10,7 +12,8 @@ const Nav = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { resetCoins, addCoin } = useContext(WatchListContext);
   const [allCoins, setAllCoins] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [addIsOpen, setAddIsOpen] = useState(false);
+  const [resetIsOpen, setResetIsOpen] = useState(false);
 
   const fetchData = async () => {
     const response = await coinGecko.get("/coins/markets", {
@@ -32,8 +35,11 @@ const Nav = () => {
 
   const openCoins = () => {
     fetchData();
-    setIsOpen(true);
-    console.log(allCoins);
+    setAddIsOpen(true);
+  };
+
+  const openReset = () => {
+    setResetIsOpen(true);
   };
 
   return (
@@ -47,15 +53,22 @@ const Nav = () => {
         </h3>
 
         <h3>
-          <a onClick={resetCoins}>Reset Coins 🔁</a>
+          <a onClick={openReset}>Reset Coins 🔁</a>
         </h3>
         <h3>
           <a onClick={openCoins}>Add Coin 🪙</a>
         </h3>
       </div>
-      <CoinAddOverlay open={isOpen} onClose={() => setIsOpen(false)}>
-        <AddCoin allCoins={allCoins} setIsOpen={setIsOpen} />
+
+      <CoinAddOverlay open={addIsOpen} onClose={() => setAddIsOpen(false)}>
+        <AddCoin allCoins={allCoins} setAddIsOpen={setAddIsOpen} />
       </CoinAddOverlay>
+
+      <ResetOverlay
+        open={resetIsOpen}
+        onClose={() => setResetIsOpen(false)}
+        resetCoins={resetCoins}
+      ></ResetOverlay>
     </>
   );
 };

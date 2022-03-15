@@ -9,7 +9,8 @@ export const lightTheme = {
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(4, 4, 4, 0.685)",
   addCoinShadow: "0.2rem 0.2rem 1rem 1px rgba(4, 4, 4, 0.685)",
   addCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
-  closeAddCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
+  yesResetHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
+  noResetHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
   addCoinHover: "rgba(0,0,0,0.6)",
 };
 
@@ -22,7 +23,8 @@ export const darkTheme = {
   redShadow: "0.3rem 0.3rem 1.5rem 1px rgba(255, 4, 4, 0.685)",
   addCoinShadow: "0.2rem 0.2rem 1rem 1px rgba(4, 4, 4, 0.685)",
   addCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
-  closeAddCoinShadowHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
+  yesResetHover: "0.2rem 0.2rem 1rem 1px rgba(0, 255, 106, 0.685)",
+  noResetHover: "0.2rem 0.2rem 1rem 1px rgba(255, 4, 4, 0.685)",
   addCoinHover: "rgba(230,230,230,0.7)",
 };
 
@@ -43,7 +45,6 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 2rem;
       /* pointer-events: none; */
       box-shadow: ${(props) => props.theme.greenShadow};
-      
     }
 
     .red {
@@ -89,7 +90,7 @@ export const GlobalStyles = createGlobalStyle`
 
     #addCoin {
       height: 5rem;
-      width: 99%;
+      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -108,12 +109,56 @@ export const GlobalStyles = createGlobalStyle`
       box-shadow: ${(props) => props.theme.addCoinShadowHover};
     }
 
+    #yesReset {
+      height: 5rem;
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;  
+      margin-top: 2rem;
+      background-color: ${(props) => props.theme.card};
+      color: ${(props) => props.theme.cardTextColor};
+      border-radius: 1rem;
+      box-shadow: ${(props) => props.theme.addCoinShadow};
+    }
+      
+    
+    #yesReset:hover {
+      cursor: pointer;
+      color: ${(props) => props.theme.addCoinHover};
+      box-shadow: ${(props) => props.theme.yesResetHover};
+    }
+
+    #noReset {
+      height: 5rem;
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;  
+      margin-top: 2rem;
+      background-color: ${(props) => props.theme.card};
+      color: ${(props) => props.theme.cardTextColor};
+      border-radius: 1rem;
+      box-shadow: ${(props) => props.theme.addCoinShadow};
+    }
+      
+    
+    #noReset:hover {
+      cursor: pointer;
+      color: ${(props) => props.theme.addCoinHover};
+      box-shadow: ${(props) => props.theme.noResetHover};
+    }
+
+    
+
     #modal {
       position: fixed;
       top: 50%;
       left: 50%;
       height: 85%;
-      width: 45%;
+      width: 55%;
       border-radius: 2rem;
       transform: translate(-50%, -50%);
       zIndex: 1000;
@@ -122,7 +167,22 @@ export const GlobalStyles = createGlobalStyle`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      
+    }
+
+    #resetModal {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      height: 55%;
+      width: 55%;
+      border-radius: 2rem;
+      transform: translate(-50%, -50%);
+      zIndex: 1000;
+      background-color: ${(props) => props.theme.body};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     #inner_scroll {
@@ -132,8 +192,13 @@ export const GlobalStyles = createGlobalStyle`
       padding: 5px;
       overflow-y: scroll;
       zIndex: 1001;
-      
-      
+      display: flex;
+      flex-direction: row;
+      justify-content: center; 
+    }
+
+    #dropdown {
+      width: 90%;
     }
 
     #overlay {
@@ -164,10 +229,8 @@ export const GlobalStyles = createGlobalStyle`
     #addCoinClose:hover {
       cursor: pointer;
       color: ${(props) => props.theme.addCoinHover};
-      box-shadow: ${(props) => props.theme.closeAddCoinShadowHover};
+      box-shadow: ${(props) => props.theme.noResetHover};
     }
-
-    
 
     body::-webkit-scrollbar {
       display: none;
@@ -177,7 +240,17 @@ export const GlobalStyles = createGlobalStyle`
       scrollbar-width: none;
     }
     
+    #resetWarning {
+      
+      color: ${(props) => props.theme.fontColor};
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      border-radius: 1rem;
+      margin-left: 1rem;
 
+    }
     
 
     

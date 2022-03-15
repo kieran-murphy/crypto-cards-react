@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
+import { motion } from "framer-motion";
 
 export const CoinAddOverlay = ({ open, children, onClose }) => {
   if (!open) {
@@ -9,10 +10,15 @@ export const CoinAddOverlay = ({ open, children, onClose }) => {
     <>
       <div id="overlay" onClick={onClose} />
       <div id="modal">
-        <div id="addCoinClose" onClick={onClose} className="dropdown-item">
+        <motion.div
+          id="addCoinClose"
+          onClick={onClose}
+          className="dropdown-item"
+          whileHover={{ scale: 1.04 }}
+        >
           <h2>Close </h2>
           {/* <img src={el.image} height="30rem" /> */}
-        </div>
+        </motion.div>
         <div id="inner_scroll">{children}</div>
       </div>
     </>,

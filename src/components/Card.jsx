@@ -1,9 +1,18 @@
 import React, { Component, useState } from "react";
 import { motion } from "framer-motion";
-import { TriangleUpIcon, TriangleDownIcon, DeleteIcon } from "@chakra-ui/icons";
+import {
+  TriangleUpIcon,
+  TriangleDownIcon,
+  DeleteIcon,
+  ViewIcon,
+} from "@chakra-ui/icons";
 
 const Card = ({ coin, deleteCard }) => {
   const [isHover, setIsHover] = useState(false);
+
+  const showGraph = (coin) => {
+    console.log(coin);
+  };
 
   return (
     <motion.div
@@ -39,6 +48,20 @@ const Card = ({ coin, deleteCard }) => {
           )}
         </motion.div>
         <br></br>
+        <br></br>
+        <br></br>
+        <motion.div
+          whileHover={{ scale: 1.3 }}
+          onClick={() => {
+            showGraph(coin.id);
+          }}
+        >
+          {coin.price_change_percentage_24h > 0 ? (
+            <ViewIcon w="40" h="40" color="green" opacity={isHover ? 1 : 0} />
+          ) : (
+            <ViewIcon w="40" h="40" color="red" opacity={isHover ? 1 : 0} />
+          )}
+        </motion.div>
         <br></br>
         <br></br>
         <br></br>
