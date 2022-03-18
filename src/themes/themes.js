@@ -109,6 +109,10 @@ export const GlobalStyles = createGlobalStyle`
       box-shadow: ${(props) => props.theme.addCoinShadowHover};
     }
 
+    #addCoinName {
+      width: 40%;
+    }
+
     #yesReset {
       height: 5rem;
       width: 90%;

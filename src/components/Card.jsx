@@ -1,10 +1,11 @@
 import React, { Component, useState } from "react";
 import { motion } from "framer-motion";
 import {
+  Icon,
   TriangleUpIcon,
   TriangleDownIcon,
   DeleteIcon,
-  ViewIcon,
+  InfoIcon,
 } from "@chakra-ui/icons";
 
 const Card = ({ coin, deleteCard }) => {
@@ -57,9 +58,9 @@ const Card = ({ coin, deleteCard }) => {
           }}
         >
           {coin.price_change_percentage_24h > 0 ? (
-            <ViewIcon w="40" h="40" color="green" opacity={isHover ? 1 : 0} />
+            <InfoIcon w="40" h="40" color="green" opacity={isHover ? 1 : 0} />
           ) : (
-            <ViewIcon w="40" h="40" color="red" opacity={isHover ? 1 : 0} />
+            <InfoIcon w="40" h="40" color="red" opacity={isHover ? 1 : 0} />
           )}
         </motion.div>
         <br></br>

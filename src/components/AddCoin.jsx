@@ -21,7 +21,9 @@ const AddCoin = ({ allCoins, setAddIsOpen }) => {
             onClick={() => handleClick(el.id)}
             className="dropdown-item"
           >
-            <h2>{el.name}</h2>
+            <div id="addCoinName">
+              <h2>{el.name}</h2>
+            </div>
             <img src={el.image} height="30rem" />
           </motion.div>
         );
