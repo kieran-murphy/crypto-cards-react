@@ -69,6 +69,7 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 17px;
       border-radius: 1rem;
       margin-left: 1rem;
+      transition: background-color 0.3s;
     }
     
     /* Change the color of links on hover */
@@ -78,11 +79,6 @@ export const GlobalStyles = createGlobalStyle`
       cursor: pointer;
     }
     
-    /* Add a color to the active/current link */
-    #topnav a.active {
-      background-color: #04aa6d;
-      color: white;
-    }
 
     #loading {
       color: ${(props) => props.theme.fontColor};
@@ -236,13 +232,6 @@ export const GlobalStyles = createGlobalStyle`
       box-shadow: ${(props) => props.theme.noResetHover};
     }
 
-    body::-webkit-scrollbar {
-      display: none;
-    }
-
-    html {
-      scrollbar-width: none;
-    }
     
     #resetWarning {
       

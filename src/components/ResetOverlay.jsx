@@ -15,6 +15,7 @@ export const ResetOverlay = ({ open, onClose, resetCoins }) => {
   return ReactDom.createPortal(
     <>
       <div id="overlay" onClick={onClose} />
+
       <div id="resetModal">
         <h3 id="resetWarning">Are you sure you want to reset coins?</h3>
         <motion.div id="yesReset" onClick={reset} whileHover={{ scale: 1.04 }}>

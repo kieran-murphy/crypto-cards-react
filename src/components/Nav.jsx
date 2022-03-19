@@ -48,6 +48,7 @@ const Nav = () => {
         <h3>
           <a onClick={() => toggleTheme("light")}>Light Mode ☀️</a>
         </h3>
+
         <h3>
           <a onClick={() => toggleTheme("dark")}>Night Mode 🌑</a>
         </h3>
