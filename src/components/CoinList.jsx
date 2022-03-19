@@ -28,8 +28,21 @@ const CoinList = () => {
           ids: watchList.join(","),
         },
       });
+      let underorderedList = [...response.data];
 
-      setCoins(response.data);
+      let watchListTemp = [...watchList];
+      const orderedList = [];
+      while (underorderedList.length !== 0) {
+        let currentCoinIndex = underorderedList.findIndex(
+          (x) => x.id === watchListTemp[0]
+        );
+
+        orderedList.push(underorderedList[currentCoinIndex]);
+        underorderedList.splice(currentCoinIndex, 1);
+        watchListTemp.shift();
+      }
+
+      setCoins(orderedList);
       setIsLoading(false);
     };
     if (watchList.length > 0) {
@@ -40,10 +53,16 @@ const CoinList = () => {
   }, [watchList]);
 
   useEffect(() => {
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    if (!isLoading) {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
   }, [coins]);
 
   const renderCoins = () => {
+    if (isLoading) {
+      return <div>.</div>;
+    }
+
     return (
       <motion.div
         ref={carousel}

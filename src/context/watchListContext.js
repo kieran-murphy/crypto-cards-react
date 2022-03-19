@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 
 export const WatchListContext = createContext();
-const defaultCoins = ["bitcoin", "ethereum", "ripple", "litecoin"];
+const defaultCoins = ["bitcoin", "ethereum", "ripple"];
 
 export const WatchListContextProvider = (props) => {
   const loading = () => {
