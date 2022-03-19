@@ -255,6 +255,18 @@ export const GlobalStyles = createGlobalStyle`
       margin-left: 1rem;
 
     }
+
+    #graph {
+      width: 90%;
+      height: 90%;
+    }
+
+    #myChart {
+      width: 80%;
+      height: 80%;
+    }
+
+    
     
 
     
