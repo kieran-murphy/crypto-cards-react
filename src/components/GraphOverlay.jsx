@@ -10,7 +10,7 @@ export const GraphOverlay = ({ coinData, coin, open, children, onClose }) => {
   return ReactDom.createPortal(
     <>
       <div id="overlay" onClick={onClose} />
-      <div id="modal">
+      <div id="graphModal">
         <motion.div
           id="addCoinClose"
           onClick={onClose}

@@ -169,6 +169,22 @@ export const GlobalStyles = createGlobalStyle`
       justify-content: center;
     }
 
+    #graphModal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      height: 85%;
+      width: 75%;
+      border-radius: 2rem;
+      transform: translate(-50%, -50%);
+      zIndex: 1000;
+      background-color: ${(props) => props.theme.body};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     #resetModal {
       position: fixed;
       top: 40%;
