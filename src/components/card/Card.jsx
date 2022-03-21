@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
-import { GraphOverlay } from "./GraphOverlay";
+import { GraphOverlay } from "../GraphOverlay";
 import { motion } from "framer-motion";
-import coinGecko from "../apis/coinGecko";
+import coinGecko from "../../apis/coinGecko";
 import {
   Icon,
   TriangleUpIcon,
@@ -41,12 +41,14 @@ const Card = ({ coin, deleteCard }) => {
         year: formatData(year.data.prices),
       });
     };
+
     fetchData();
   }, []);
 
   return (
     <>
       <motion.div
+        data-testid="card"
         className="item"
         key={coin.name}
         whileHover={{ scale: 1.03 }}

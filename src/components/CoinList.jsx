@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Select } from "@chakra-ui/react";
 
 import coinGecko from "../apis/coinGecko";
-import Card from "./Card";
+import Card from "./card/Card";
 import Nav from "./Nav";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "../themes/themes.js";
