@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/crypto-cards-react/static/css/main.3d38dbd4.css",
+    "main.js": "/crypto-cards-react/static/js/main.b7a5e659.js",
+    "static/js/787.32bd85a9.chunk.js": "/crypto-cards-react/static/js/787.32bd85a9.chunk.js",
+    "index.html": "/crypto-cards-react/index.html",
+    "main.3d38dbd4.css.map": "/crypto-cards-react/static/css/main.3d38dbd4.css.map",
+    "main.b7a5e659.js.map": "/crypto-cards-react/static/js/main.b7a5e659.js.map",
+    "787.32bd85a9.chunk.js.map": "/crypto-cards-react/static/js/787.32bd85a9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d38dbd4.css",
+    "static/js/main.b7a5e659.js"
+  ]
+}
