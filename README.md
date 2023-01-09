@@ -17,7 +17,7 @@ To run this project simply download from github, `cd` into the directory and run
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Alternatively the live web version can be found at this [link](https://kmurp62rulz.github.io/crypto-cards-react/)
+Alternatively the live web version can be found at this [link](https://kieran-murphy.github.io/crypto-cards-react/)
 
 
 
